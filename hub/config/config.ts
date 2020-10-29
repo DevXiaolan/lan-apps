@@ -72,7 +72,6 @@ export default defineConfig({
   lessLoader: {
     javascriptEnabled: true,
     modifyVars: {
-      // 'ant-prefix': 'box'
     },
   },
   cssLoader: {
@@ -110,5 +109,4 @@ export default defineConfig({
   manifest: {
     basePath: '/',
   },
-  // chainWebpack: webpackPlugin,
 });
