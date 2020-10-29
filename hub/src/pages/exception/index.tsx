@@ -1,8 +1,8 @@
 import React from 'react';
 import { useIntl, Link, useParams } from 'umi';
-import Exception from './Exception';
+import Exception, { ExceptionProps } from './Exception';
 
-export default props => {
+export default (props: ExceptionProps) => {
   const { formatMessage } = useIntl();
   const { code } = useParams() as { code?: number };
   return (

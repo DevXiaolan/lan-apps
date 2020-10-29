@@ -1,26 +1,18 @@
 import { Button } from 'antd';
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import * as H from 'history';
 import React, { createElement } from 'react';
 import { Link } from 'umi';
 import styles from './index.less';
 import config from './typeConfig';
 
-export interface ExceptionProps<
-  L = {
-    to: H.LocationDescriptor;
-    href?: H.LocationDescriptor;
-    replace?: boolean;
-    innerRef?: (node: HTMLAnchorElement | null) => void;
-  }
-> {
-  type?: '403' | '404' | '500';
+export interface ExceptionProps {
+  type?: number;
   title?: React.ReactNode;
   desc?: React.ReactNode;
   img?: string;
   actions?: React.ReactNode;
-  linkElement?: string | React.ComponentType<L> | typeof Link;
+  linkElement?: string | typeof Link;
   style?: React.CSSProperties;
   className?: string;
   backText?: React.ReactNode;
@@ -37,7 +29,7 @@ const Exception = (props: ExceptionProps = DEFAULT_PROPS) => {
     className,
     backText,
     linkElement = 'a',
-    type = '404',
+    type = 404,
     title,
     desc,
     img,
@@ -64,7 +56,7 @@ const Exception = (props: ExceptionProps = DEFAULT_PROPS) => {
           {actions ||
             (redirect &&
               createElement(
-                linkElement,
+                'a',
                 {
                   to: redirect,
                   href: redirect,

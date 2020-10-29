@@ -1,6 +1,6 @@
 import { request } from 'umi';
 
-const BASE = 'http://127.0.0.1:3000';
+const BASE = 'https://apps-api.lanhao.name';
 
 export interface IApp {
   url: string;

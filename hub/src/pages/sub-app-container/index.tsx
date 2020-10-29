@@ -5,7 +5,7 @@ import { MicroAppWithMemoHistory } from 'umi';
 export default () => {
   const [,, name, ...url] = location.pathname.split('/');
   return (
-    <PageHeaderWrapper>
+    <PageHeaderWrapper title={false}>
       <MicroAppWithMemoHistory  name={name} url={`/${url.join('/')}`} />
     </PageHeaderWrapper>
   );

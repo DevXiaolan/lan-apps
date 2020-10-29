@@ -1,9 +1,11 @@
 import { getApps } from '@/services';
+import { RocketOutlined } from '@ant-design/icons';
 import {
   BasicLayout as ProLayoutComponents,
   BasicLayoutProps as ProLayoutComponentsProps,
   MenuDataItem,
 } from '@ant-design/pro-layout';
+import { Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { Link, qiankunStart } from 'umi';
 
@@ -32,24 +34,29 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     console.log('Qiankun started');
   }, []);
 
-  return (
+  return menus.length ? (
     <ProLayoutComponents
       logo={false}
       menuHeaderRender={false}
       menuItemRender={(menuItemProps, defaultDom) => {
         return (
-          <Link to={menuItemProps.path as string}>
-            {defaultDom}
+          <Link
+            to={menuItemProps.path as string}
+          >
+            <RocketOutlined />{defaultDom}
           </Link>
         );
       }}
-      menuDataRender={() => menus}
+      menuDataRender={() => {
+        console.log('Final Menu', menus);
+        return menus
+      }}
       navTheme="light"
-      layout="topmenu"
+      layout="top"
     >
       {children}
     </ProLayoutComponents>
-  );
+  ) : <Spin />;
 };
 
 
