@@ -1,14 +1,15 @@
-import request from 'umi-request';
+import { request } from 'umi';
+
+const BASE = 'http://127.0.0.1:3000';
 
 export interface IApp {
-  name: string;
   url: string;
+  name: string;
 }
 
 export const getApps = async (): Promise<IApp[]> => {
-  const { code, data } = await request.get('/api/app');
-  if (code === 0) {
-    return data;
-  }
-  return [];
+  const { code, data } = await request(`${BASE}/app`, {
+    method: 'GET',
+  });
+  return code === 0 ? data : [];
 };

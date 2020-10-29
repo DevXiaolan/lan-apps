@@ -1,4 +1,4 @@
-import { getApps } from './services';
+import { getApps } from "./services";
 
 export const qiankun = async () => {
   const apps = await getApps();
