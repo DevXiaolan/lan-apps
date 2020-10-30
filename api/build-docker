@@ -1,7 +1,7 @@
 mohism run build
 
-docker build -t lan_app_api:201014 .
+docker build -t lan_app_api:201030 .
 
-docker tag lan_app_api:201014 registry.cn-shenzhen.aliyuncs.com/lan_jane/lan_app_api:201014
+docker tag lan_app_api:201030 registry.cn-shenzhen.aliyuncs.com/lan_jane/lan_app_api:201030
 
-docker push registry.cn-shenzhen.aliyuncs.com/lan_jane/lan_app_api:201014
+docker push registry.cn-shenzhen.aliyuncs.com/lan_jane/lan_app_api:201030

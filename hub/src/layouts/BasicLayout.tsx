@@ -1,5 +1,5 @@
 import { getApps } from '@/services';
-import { RocketOutlined } from '@ant-design/icons';
+import { Html5Outlined, RocketOutlined, SmileOutlined, ToolOutlined } from '@ant-design/icons';
 import {
   BasicLayout as ProLayoutComponents,
   BasicLayoutProps as ProLayoutComponentsProps,
@@ -19,6 +19,20 @@ export interface BasicLayoutProps
   siteConfig: object;
 }
 
+const getIcon = (name: string | React.ReactNode = '') => {
+  switch (name) {
+    case 'app':
+      return <RocketOutlined />;
+    case 'h5':
+      return <Html5Outlined />;
+    case 'tool':
+      return <ToolOutlined />;
+    case 'fun':
+      return <SmileOutlined />;
+  }
+  return <RocketOutlined />;
+}
+
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const [menus, setMenu] = useState<MenuDataItem[]>([]);
   const { children } = props;
@@ -28,6 +42,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       setMenu(apps.map(app => ({
         path: `/app/${app.name}`,
         name: app.name,
+        icon: app.icon,
       })));
     })
     qiankunStart();
@@ -38,12 +53,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     <ProLayoutComponents
       logo={false}
       menuHeaderRender={false}
-      menuItemRender={(menuItemProps, defaultDom) => {
+      menuItemRender={(menuItemProps) => {
         return (
           <Link
             to={menuItemProps.path as string}
           >
-            <RocketOutlined />{defaultDom}
+            {getIcon(menuItemProps.icon)}<span>{menuItemProps.name}</span>
           </Link>
         );
       }}

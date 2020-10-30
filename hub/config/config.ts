@@ -47,7 +47,11 @@ export default defineConfig({
               component: './sub-app-container',
             },
             {
-              path: '/app/mfe-react',
+              path: '/app/marketing-generator',
+              component: './sub-app-container',
+            },
+            {
+              path: '/app/three-earth',
               component: './sub-app-container',
             },
             // 追加应用看这里
