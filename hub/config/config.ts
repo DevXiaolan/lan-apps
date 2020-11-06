@@ -43,11 +43,7 @@ export default defineConfig({
           path: '/app',
           routes: [
             {
-              path: '/app/pornhub-title',
-              component: './sub-app-container',
-            },
-            {
-              path: '/app/marketing-generator',
+              path: '/app*',
               component: './sub-app-container',
             },
             // 追加应用看这里
