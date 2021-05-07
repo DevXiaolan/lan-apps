@@ -1,7 +1,7 @@
 npm run build
 
-docker build -t lan-apps-hub:201222 .
+docker build -t lan-apps-hub:201223 .
 
-docker tag lan-apps-hub:201222 registry.cn-shenzhen.aliyuncs.com/lan_jane/lan-apps-hub:201222
+docker tag lan-apps-hub:201223 registry.cn-shenzhen.aliyuncs.com/lan_jane/lan-apps-hub:201223
 
-docker push registry.cn-shenzhen.aliyuncs.com/lan_jane/lan-apps-hub:201222
+docker push registry.cn-shenzhen.aliyuncs.com/lan_jane/lan-apps-hub:201223
